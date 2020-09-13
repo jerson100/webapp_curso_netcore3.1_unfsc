@@ -1,0 +1,28 @@
+﻿@model WebAppTDSII_2020.Models.Producto
+<br />
+<h3>LISTADO PRODUCTO | ASP.NET CORE 3.1</h3>
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-warning">
+            <th class="text-center text-dark">IdProducto</th>
+            <th class="text-center">Código</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Unidad Medida</th>
+            <th class="text-center">Precio</th>
+            <th class="text-center">Stock</th>
+            <th class="text-center">Fecha Registro</th>
+        </tr>
+
+
+        <tr>
+            <td>@Model.IdProducto</td>
+            <td>@Model.Codigo</td>
+            <td>@Model.Nombre</td>
+            <td>@Model.UnidadMedida</td>
+            <td>@Model.Precio</td>
+            <td>@Model.Stock</td>
+            <td>@Model.FechaRegistro</td>
+        </tr>
+
+    </thead>
+</table>

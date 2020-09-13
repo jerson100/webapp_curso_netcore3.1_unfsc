@@ -1,0 +1,115 @@
+﻿@model WebAppTDSII_2020.Models.BancosDetBinding
+<h2 class="text-warning">Listado de Bancos Detalle</h2>
+<hr />
+<p>
+    <a asp-action="Create">Nuevo</a>
+</p>
+<form asp-action="LBancosDet" method="GET">
+    <div class="form-row">
+        <div class="col">
+            <div class="form-group">
+                <label>Bancos</label>
+                <select asp-for="IdBancosCab" class="form-control"
+                        asp-items="@(new SelectList(ViewData["BancosCab"] as IEnumerable<BancosCab>, "IdBancosCab","Nombre"))">
+                </select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label>Meses</label>
+                <select asp-for="IdMonth" class="form-control">
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+        </div>
+        <div class="col" style="display: flex; align-items: flex-end;">
+            <div class="form-group">
+                <button class="btn btn-primary">Search</button>
+                <a asp-action="LBancosDet" class="btn btn-primary">Refresh</a>
+            </div>
+        </div>
+    </div>
+</form>
+<table class="table d-table-row">
+    <thead>
+        <tr class="bg-warning text-center">
+
+            <th>
+                @Html.DisplayNameFor(model =>model.bancosDet.IdBancosDet)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.bancosDet.BancosCab.Nombre)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.bancosDet.Proveedor)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.bancosDet.RUC)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.bancosDet.Detalle)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.bancosDet.Monto)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.bancosDet.FechaRegistro)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.bancosDet.FechaModificacion)
+            </th>
+
+            <th>DIFERENCIA DÍAS</th>
+
+            <th>OPCIÓN</th>
+
+            @*<th>IDBancoDet</th>
+                <th>Proveedor</th>
+                <th>RUC</th>
+                <th>Detalle</th>
+                <th>Monto</th>
+                <th>Fecha Registro</th>
+                <th>Fecha Modificación</th>
+                <th>IdBancosCab</th>*@
+        </tr>
+    </thead>
+
+    @foreach (var item in ViewData["list"] as IEnumerable<BancosDet>)
+    {
+        <tr>
+            <td><center>@item.IdBancosDet</center></td>
+            <td><center>@item.BancosCab.Nombre</center></td>
+            <td><center>@item.Proveedor</center></td>
+            <td><center>@item.RUC</center></td>
+            <td><center>@item.Detalle</center></td>
+            <td><center>@item.Monto</center></td>
+            <td><center>@item.FechaRegistro</center></td>
+            <td><center>@item.FechaModificacion</center></td>
+            <td><center>@item.DiferenciaDias</center></td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdBancosDet })
+                @Html.ActionLink("Details", "Details", new { id = item.IdBancosDet })
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdBancosDet })
+            </td>
+        </tr>
+    }
+
+</table>

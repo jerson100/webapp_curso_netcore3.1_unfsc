@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebAppTDSII_2020.Models.Producto>
+<br />
+<h2>Listado de Producto Model</h2>
+
+<br />
+<label>Filtrar por nombre</label>
+<br />
+<form>
+    <div class="row">
+        <div class="col-xs-3">
+            <input name="FilterByName" class="form-control" placeholder="Filtrar por Nombre" />
+        </div>
+
+        <div class="col-xs-4">
+            <button class="btn btn-info">Buscar</button>
+        </div>
+    </div>
+</form>
+<br />
+
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-warning">
+            <th>IdProducto</th>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Unidad Medida</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Fecha Registro</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdProducto</td>
+                <td>@item.Codigo</td>
+                <td>@item.Nombre</td>
+                <td>@item.UnidadMedida</td>
+                <td>@item.Precio</td>
+                <td>@item.Stock</td>
+                <td>@item.FechaRegistro</td>
+            </tr>
+        }
+    </thead>
+</table>

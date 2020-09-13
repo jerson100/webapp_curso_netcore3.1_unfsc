@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebAppTDSII_2020.Models.Producto>
+<br />
+
+<h2>Listado De Producto - TEMDATA</h2>
+<br />
+
+<table class="table table-hover">
+    <thead>
+        <tr class="badge-success">
+            <th><center>@Html.DisplayNameFor(item => item.IdProducto)</center></th>
+            <th><center>@Html.DisplayNameFor(item => item.Nombre)</center></th>
+            <th><center>@Html.DisplayNameFor(item => item.Codigo)</center></th>
+            <th><center>@Html.DisplayNameFor(item => item.UnidadMedida)</center></th>
+            <th><center>@Html.DisplayNameFor(item => item.Precio)</center></th>
+            <th><center>@Html.DisplayNameFor(item => item.Stock)</center></th>
+            <th><center>@Html.DisplayNameFor(item => item.FechaRegistro)</center></th>
+        </tr>
+
+        @foreach (var dbTD in TempData["LProductoTD"] as IList<Producto>)
+        {
+            <tr>
+                <td><center>@dbTD.IdProducto</center></td>
+                <td><center>@dbTD.Nombre</center></td>
+                <td><center>@dbTD.Codigo</center></td>
+                <td><center>@dbTD.UnidadMedida</center></td>
+                <td><center>@dbTD.Precio</center></td>
+                <td><center>@dbTD.Stock</center></td>
+                <td><center>@dbTD.FechaRegistro</center></td>
+            </tr>
+        }
+    </thead>
+
+</table>

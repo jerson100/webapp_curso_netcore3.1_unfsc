@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebAppTDSII_2020.Models.Producto>
+<br />
+<h2>Listado de Productos || ASP.NET CORE MVC </h2>
+<br />
+<label>Filtrar por nombre</label>
+<br />
+<form>
+    <div class="row">
+        <div class="col-xs-3">
+            <input name="FiltroByName" class="form-control" placeholder="Ingresar Nombre"/>
+        </div>
+        <div class="col-xs-4">
+            <button class="btn btn-info">Buscar <span class="glyphicon glyphicon-search"></span></button>
+        </div>
+    </div>
+</form>
+<br />
+<table class="table table-bordered">
+    <!--table-bordered es una tabla con bordes-->
+    <thead>
+        <tr class="bg-warning">
+            <th>IdProducto</th>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Unidad Medida</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Fecha Creación</th>
+        </tr>
+
+        @foreach (var item in ViewBag.LProducto)
+        {
+            <tr>
+                <td>@item.IdProducto</td>
+                <td>@item.Codigo</td>
+                <td>@item.Nombre</td>
+                <td>@item.UnidadMedida</td>
+                <td>@item.Precio</td>
+                <td>@item.Stock</td>
+                <td>@item.FechaRegistro</td>
+            </tr>
+        }
+    </thead>
+</table>
